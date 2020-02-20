@@ -9,5 +9,6 @@ export function emailFormat(value) {
 }  
 
 export function nameFormat(value) {
-    if(!value.matches("[a-zA-Z]+") && value.lenth < 20) return true;
+    const nameRegExp = /^[a-zA-Z\s\.]+$/;
+    if(!nameRegExp.test(value) || value.length > 20) return true;
 }

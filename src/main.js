@@ -11,6 +11,9 @@ new Vue({
   el: '#app',
   router,
   store: store,
+  beforeCreate() {
+		this.$store.commit('initialiseStore');
+	},
   template: '<App/>',
   components: { App }
 })

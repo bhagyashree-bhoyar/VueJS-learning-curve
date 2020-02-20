@@ -1,12 +1,12 @@
 <template>
     <div id="product-list-one">
         <h2> List </h2>
-        <ul>
-            <li v-for="entry in entrys" :key="entry">
-                <span class="name">{{ entry.name }}</span>
-                <span class="price">{{ entry.email }}</span>
-            </li>
-        </ul>
+        <div class="list">
+            <div class="list-item" v-for="entry in entrys" :key="entry">
+                <span class="name">Name: {{ entry.name }}</span>
+                <span class="email">Email: {{ entry.email }}</span>
+            </div>
+        </div>
     </div>
 </template>
 
@@ -31,18 +31,18 @@ export default {
     margin-bottom: 30px;
     padding: 10px 20px;
 }
-#product-list-one ul{
+.list{
     padding: 0;
 }
-#product-list-one li{
-    display: inline-block;
+.list-item {
     margin-right: 10px;
     margin-top: 10px;
     padding: 20px;
     background: rgba(255,255,255,0.7);
 }
-.price{
+.email {
     font-weight: bold;
     color: #E8800C;
+    margin-left: 10px;
 }
 </style>
