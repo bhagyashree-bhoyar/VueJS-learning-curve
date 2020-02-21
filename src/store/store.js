@@ -1,4 +1,3 @@
- 
 import Vue from 'vue';
 import Vuex from 'vuex';
 
@@ -6,35 +5,29 @@ Vue.use(Vuex);
 
 export const store = new Vuex.Store({
     state: {
-        entrys: [ ]
-    },
-    
-    getters: {
-        getEntrys: (state) => {
-            var getEntrys = state.entrys.map( entry => {
-                return entry;
-            });
-            return getEntrys;
-        }
+        entrys: []
     },
     actions: {
         addEntry({ commit }, entry) {
-            commit('addEntry', entry)
+            commit('addEntry', entry);
+        },
+        updateEnttrys({ commit }, preveousEntrys) {
+            commit('updateEnttrys', preveousEntrys);
         }
     },
-
     mutations: {
         initialiseStore(state) {
-			// Check if the ID exists
 			if(localStorage.getItem('store')) {
-				// Replace the state object with the stored item
 				this.replaceState(
 					Object.assign(state, JSON.parse(localStorage.getItem('store')))
 				);
 			}
 		},
         addEntry (state, entry) {
-            state.entrys = [...state.entrys, entry]
-          }
+            state.entrys = [...state.entrys, entry];
+        },
+        updateEnttrys (state, preveousEntrys) {
+            state.entrys = preveousEntrys;
+        }  
     }
 });
